@@ -27,11 +27,8 @@ public class PimBackendApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		SuperCategory superCategory = new SuperCategory();
 
-
-
 		superCategory.setName("Electronics");
 		superCategory.setSeoCopy("new new");
-
 
 		superCategoryRepositary.save(superCategory);
 

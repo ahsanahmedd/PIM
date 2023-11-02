@@ -42,13 +42,17 @@ public class SuperCategoryService {
     }
     /**
      * Create a new SuperCategory in the repository
+     * @param superCategory objects
+     * @return the {@link SuperCategory} objects
      */
     public SuperCategory createSuperCategory(SuperCategory superCategory) {
         return superCategoryRepositary.save(superCategory);
     }
     /**
      * Update an existing SuperCategory in the repository
-     * @param id
+     * @param id the identification number for SuperCategories
+     * @param superCategory
+     * @return the {@link SuperCategory} objects
      */
     public SuperCategory updateSuperCategory(Long id, SuperCategory superCategory) {
         Optional<SuperCategory> existingSuperCategoryOptional = superCategoryRepositary.findById(id);

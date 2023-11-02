@@ -41,13 +41,16 @@ public class SubCategoryService {
         }
     /**
      * Create a new SubCategory in the repository
+     * @param subCategory objects
+     * @return the {@link SubCategory} objects
      */
         public SubCategory createSubCategory(SubCategory subCategory) {
             return subCategoryRepository.save(subCategory);
         }
     /**
      * Update an existing SubCategory in the repository
-     * @param id
+     * @param id the identification number for subCategory
+     * @return the {@link SubCategory} objects
      */
         public SubCategory updateSubCategory(Long id, SubCategory updatedSubCategory) {
             SubCategory existingSubCategory = subCategoryRepository.findById(id).orElse(null);

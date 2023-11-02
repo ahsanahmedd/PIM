@@ -46,6 +46,7 @@ public class SwatchService {
     /**
      * Create a new swatch in the repository
      * @param swatch
+     * @return the {@link Swatch} objects
      */
     public Swatch createSwatch(Swatch swatch) {
         return swatchRepository.save(swatch);
@@ -55,6 +56,7 @@ public class SwatchService {
      * Update an existing swatch in the repository
      * @param id
      * @param updateSwatch
+     * @return the {@link Swatch} objects
      */
     public Swatch updateSwatch(Long id, Swatch updateSwatch) {
         Optional<Swatch> existingProduct = swatchRepository.findById(id);

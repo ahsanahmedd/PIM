@@ -39,6 +39,8 @@ public class SubCategoryController {
 
     /**
      *Retrieve and return a SubCategory by its ID
+     * @param subCategoryId objects
+     * @return the {@link SubCategory} objects
      */
     @GetMapping("/{subCategoryId}")
     public SubCategory getSubCategoryById(@PathVariable Long subCategoryId) {

@@ -23,7 +23,6 @@ public class ProductService {
     private final SubCategoryRepositary subCategoryRepositary;
     /**
      * Constructor
-     * @return
      */
     @Autowired
     public ProductService(ProductRepositary productRepository, SubCategoryRepositary subCategoryRepositary) {
@@ -38,20 +37,24 @@ public class ProductService {
     }
     /**
      * Retrieve a Product by its ID from the repository
-     * @param id
+     * @param id objects
+     * @return the {@link Product} objects
      */
     public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
     /**
      * Create a new Product in the repository
+     * @param product objects
+     * @return the {@link Product} objects
      */
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
     /**
      * Update an existing Product in the repository
-     * @param id
+     *  @param id the identification number for product
+     *  @return the {@link Product} objects
      */
     public Product updateProduct(Long id, Product updatedProduct) {
         Optional<Product> existingProduct = productRepository.findById(id);

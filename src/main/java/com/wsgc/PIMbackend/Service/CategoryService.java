@@ -35,6 +35,7 @@ public class CategoryService {
     /**
      * Retrieve a Category by its ID from the repository
      * @param id
+     * @return the {@link Category} object
      */
     public Category getCategoryById(Long id) {
         Optional<Category> category = categoryRepository.findById(id);
@@ -42,13 +43,17 @@ public class CategoryService {
     }
     /**
      * Create a new Category in the repository
+     * @param category objects
+     * @return the {@link Category} objects
      */
     public Category createCategory(Category category) {
         return categoryRepository.save(category);
     }
     /**
      * Update an existing Category in the repository
-     * @param id
+     * @param id the identification number for categories
+     * @param category
+     * @return the {@link Category} objects
      */
     public Category updateCategory(Long id, Category category) {
         if (categoryRepository.existsById(id)) {
