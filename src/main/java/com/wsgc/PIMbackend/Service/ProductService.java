@@ -32,7 +32,6 @@ public class ProductService {
     }
     /**
      * Retrieve all Product from the repository
-     * @return
      */
     public List<Product> getAllProducts() {
         return productRepository.findAll();
@@ -40,14 +39,12 @@ public class ProductService {
     /**
      * Retrieve a Product by its ID from the repository
      * @param id
-     * @return
      */
     public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
     /**
      * Create a new Product in the repository
-     * @return
      */
     public Product createProduct(Product product) {
         return productRepository.save(product);
@@ -55,7 +52,6 @@ public class ProductService {
     /**
      * Update an existing Product in the repository
      * @param id
-     * @return
      */
     public Product updateProduct(Long id, Product updatedProduct) {
         Optional<Product> existingProduct = productRepository.findById(id);

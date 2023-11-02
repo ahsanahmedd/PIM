@@ -33,14 +33,17 @@ public class AttributesController {
     }
     /**
      *Retrieve and return a Attributes by its ID
+     * @param id objects
+     * @return the {@link Attributes} object
      */
     @GetMapping("/{AttributesID}")
     public Optional<Attributes> getAttributesById(@PathVariable Long id) {
         return attributesService.getAttributesById(id);
     }
     /**
-     *  Create and return a new Attributes
-     * @return
+     * Create and return a new Attributes
+     * @param attributes objects
+     * @return the {@link Attributes} object
      */
     @PostMapping
     public Attributes createAttributes(@RequestBody Attributes attributes) {
@@ -48,9 +51,9 @@ public class AttributesController {
     }
     /**
      * Update and return the updated Attributes
-     * @param id
-
-     * @return
+     * @param id the identification number for attributes
+     * @param attributes
+     * @return the {@link Attributes} object
      */
     @PutMapping("/{id}")
     public Attributes updateAttributes(@PathVariable Long id, @RequestBody Attributes attributes) {

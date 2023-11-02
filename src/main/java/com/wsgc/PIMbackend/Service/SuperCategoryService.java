@@ -19,7 +19,6 @@ public class SuperCategoryService {
 
     /**
      * Constructor
-     * @return
      */
     @Autowired
 
@@ -29,7 +28,6 @@ public class SuperCategoryService {
     }
     /**
      * Retrieve all SuperCategory from the repository
-     * @return
      */
     public List<SuperCategory> getAllSuperCategories() {
         return superCategoryRepositary.findAll();
@@ -37,7 +35,6 @@ public class SuperCategoryService {
     /**
      * Retrieve a SuperCategory by its ID from the repository
      * @param id
-     * @return
      */
     public SuperCategory getSuperCategoryById(Long id) {
         Optional<SuperCategory> superCategoryOptional = superCategoryRepositary.findById(id);
@@ -45,7 +42,6 @@ public class SuperCategoryService {
     }
     /**
      * Create a new SuperCategory in the repository
-     * @return
      */
     public SuperCategory createSuperCategory(SuperCategory superCategory) {
         return superCategoryRepositary.save(superCategory);
@@ -53,7 +49,6 @@ public class SuperCategoryService {
     /**
      * Update an existing SuperCategory in the repository
      * @param id
-     * @return
      */
     public SuperCategory updateSuperCategory(Long id, SuperCategory superCategory) {
         Optional<SuperCategory> existingSuperCategoryOptional = superCategoryRepositary.findById(id);

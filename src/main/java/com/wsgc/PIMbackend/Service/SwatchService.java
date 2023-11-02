@@ -18,7 +18,6 @@ public class SwatchService {
     private AttributesRepository attributesRepository;
     /**
      * Constructor
-     * @return
      */
     @Autowired
 
@@ -30,7 +29,6 @@ public class SwatchService {
 
     /**
      * Retrieve all swatches from the repository
-     * @return
      */
 
     public List<Swatch> getAllSwatches() {
@@ -40,7 +38,6 @@ public class SwatchService {
     /**
      * Retrieve a swatch by its ID from the repository
      * @param id
-     * @return
      */
     public Optional<Swatch> getSwatchById(Long id) {
         return swatchRepository.findById(id);
@@ -49,7 +46,6 @@ public class SwatchService {
     /**
      * Create a new swatch in the repository
      * @param swatch
-     * @return
      */
     public Swatch createSwatch(Swatch swatch) {
         return swatchRepository.save(swatch);
@@ -59,7 +55,6 @@ public class SwatchService {
      * Update an existing swatch in the repository
      * @param id
      * @param updateSwatch
-     * @return
      */
     public Swatch updateSwatch(Long id, Swatch updateSwatch) {
         Optional<Swatch> existingProduct = swatchRepository.findById(id);

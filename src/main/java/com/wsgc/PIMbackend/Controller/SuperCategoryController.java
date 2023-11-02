@@ -2,6 +2,7 @@
 package com.wsgc.PIMbackend.Controller;
 
 import com.wsgc.PIMbackend.Service.SuperCategoryService;
+import com.wsgc.PIMbackend.model.Category;
 import com.wsgc.PIMbackend.model.SuperCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,7 +43,8 @@ public class SuperCategoryController {
     }
     /**
      *  Create and return a new SuperCategory
-     * @return
+     * @param superCategory objects
+     * @return the {@link SuperCategory} objects
      */
     @PostMapping
     public SuperCategory createSuperCategory(@RequestBody SuperCategory superCategory) {
@@ -50,9 +52,9 @@ public class SuperCategoryController {
     }
     /**
      * Update and return the updated SuperCategory
-     * @param id
-
-     * @return
+     * @param id the identification number for SuperCategories
+     * @param superCategory
+     * @return the {@link SuperCategory} objects
      */
     @PutMapping("/{id}")
     public SuperCategory updateSuperCategory(@PathVariable Long id, @RequestBody SuperCategory superCategory) {

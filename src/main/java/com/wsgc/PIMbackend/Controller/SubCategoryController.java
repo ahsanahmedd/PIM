@@ -47,17 +47,17 @@ public class SubCategoryController {
 
     /**
      *  Create and return a new SubCategory
-     * @return
+     * @param subCategory objects
+     * @return the {@link SubCategory} objects
      */
     @PostMapping
     public SubCategory createSubCategory(@RequestBody SubCategory subCategory) {
         return subCategoryService.createSubCategory(subCategory);
     }
-
-
     /**
      * Update and return the updated SubCategory
-     * @return
+     * @param subCategoryId the identification number for subCategory
+     * @return the {@link SubCategory} objects
      */
     @PutMapping("/{subCategoryId}")
     public SubCategory updateSubCategory(@PathVariable Long subCategoryId, @RequestBody SubCategory updatedSubCategory) {

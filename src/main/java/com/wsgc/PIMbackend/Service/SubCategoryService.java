@@ -28,7 +28,6 @@ public class SubCategoryService {
 
     /**
      * Retrieve all SubCategory from the repository
-     * @return
      */
         public List<SubCategory> getAllSubCategories() {
             return subCategoryRepository.findAll();
@@ -36,14 +35,12 @@ public class SubCategoryService {
     /**
      * Retrieve a SubCategory by its ID from the repository
      * @param id
-     * @return
      */
         public SubCategory getSubCategoryById(Long id) {
             return subCategoryRepository.findById(id).orElse(null);
         }
     /**
      * Create a new SubCategory in the repository
-     * @return
      */
         public SubCategory createSubCategory(SubCategory subCategory) {
             return subCategoryRepository.save(subCategory);
@@ -51,7 +48,6 @@ public class SubCategoryService {
     /**
      * Update an existing SubCategory in the repository
      * @param id
-     * @return
      */
         public SubCategory updateSubCategory(Long id, SubCategory updatedSubCategory) {
             SubCategory existingSubCategory = subCategoryRepository.findById(id).orElse(null);

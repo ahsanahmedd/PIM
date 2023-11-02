@@ -21,7 +21,6 @@ public class CategoryController {
     private SuperCategoryService superCategoryService;
     /**
      * Constructor
-     * @return
      */
     @Autowired
     public CategoryController(CategoryService categoryService, SuperCategoryService superCategoryService){
@@ -39,6 +38,8 @@ public class CategoryController {
 
     /**
      *Retrieve and return a Category by its ID
+     * @param id
+     * @return the {@link Category} object
      */
     @GetMapping("/{id}")
     public Category getCategoryById(@PathVariable Long id) {
@@ -47,7 +48,8 @@ public class CategoryController {
 
     /**
      *  Create and return a new Category
-     * @return
+     * @param category objects
+     * @return the {@link Category} objects
      */
     @PostMapping
     public Category createCategory(@RequestBody Category category) {
@@ -56,9 +58,9 @@ public class CategoryController {
 
     /**
      * Update and return the updated Category
-     * @param id
-
-     * @return
+     * @param id the identification number for categories
+     * @param category
+     * @return the {@link Category} objects
      */
     @PutMapping("/{id}")
     public Category updateCategory(@PathVariable Long id, @RequestBody Category category) {

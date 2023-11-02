@@ -1,7 +1,3 @@
-
-
-
-
 package com.wsgc.PIMbackend.model;
 
 import lombok.AllArgsConstructor;
@@ -26,7 +22,6 @@ public class Product {
     @Column(name = "Name")
     private String name;
 
-//
     @Column(name = "Price")
     private Long price;
     @Column(name = "Stock")

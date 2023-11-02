@@ -28,7 +28,6 @@ public class CategoryService {
     }
     /**
      * Retrieve all Category from the repository
-     * @return
      */
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
@@ -36,7 +35,6 @@ public class CategoryService {
     /**
      * Retrieve a Category by its ID from the repository
      * @param id
-     * @return
      */
     public Category getCategoryById(Long id) {
         Optional<Category> category = categoryRepository.findById(id);
@@ -44,7 +42,6 @@ public class CategoryService {
     }
     /**
      * Create a new Category in the repository
-     * @return
      */
     public Category createCategory(Category category) {
         return categoryRepository.save(category);
@@ -52,7 +49,6 @@ public class CategoryService {
     /**
      * Update an existing Category in the repository
      * @param id
-     * @return
      */
     public Category updateCategory(Long id, Category category) {
         if (categoryRepository.existsById(id)) {

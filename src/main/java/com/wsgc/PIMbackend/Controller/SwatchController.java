@@ -45,7 +45,8 @@ public class SwatchController {
 
     /**
      *  Create and return a new swatch
-     * @return
+     * @param swatch objects
+     * @return the {@link Swatch} objects
      */
     @PostMapping
     public Swatch createSwatch(@RequestBody Swatch swatch) {
@@ -54,9 +55,9 @@ public class SwatchController {
 
     /**
      * Update and return the updated swatch
-     * @param id
-
-     * @return
+     *  @param id the identification number for categories
+     *  @param swatch
+     *  @return the {@link Swatch} objects
      */
     @PutMapping("/{id}")
     public Swatch updateSwatch(@PathVariable Long id, @RequestBody Swatch swatch) {

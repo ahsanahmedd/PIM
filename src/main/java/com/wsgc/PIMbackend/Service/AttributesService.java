@@ -20,7 +20,6 @@ public class AttributesService {
     private ProductRepositary productRepositary;
     /**
      * Constructor
-     * @return
      */
     @Autowired
     public AttributesService(AttributesRepository attributeRepository,ProductRepositary productRepositary) {
@@ -36,15 +35,14 @@ public class AttributesService {
     }
     /**
      * Retrieve a Attributes by its ID from the repository
-     * @param id
-     * @return
+     * @param id objects
+     * @return the {@link Attributes} object
      */
     public Optional<Attributes> getAttributesById(Long id) {
         return attributesRepository.findById(id);
     }
     /**
      * Create a new Attributes in the repository
-     * @return
      */
     public Attributes createAttribute(Attributes attribute) {
         return attributesRepository.save(attribute);
@@ -52,7 +50,6 @@ public class AttributesService {
     /**
      * Update an existing Attributes in the repository
      * @param id
-     * @return
      */
     public Attributes updateAttributes(Long id, Attributes attributes) {
         if (attributesRepository.existsById(id)) {

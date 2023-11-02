@@ -21,7 +21,6 @@ public class ProductController {
 
     /**
      * Constructor
-     * @return
      */
     @Autowired
     public ProductController(ProductService productService, SubCategoryService subCategoryService) {
@@ -37,6 +36,8 @@ public class ProductController {
     }
     /**
      *Retrieve and return a Product by its ID
+     * @param id objects
+     * @return the {@link Product}objects
      */
     @GetMapping("/{ProductID}")
     public Product getProductById(@PathVariable Long id) {
@@ -44,7 +45,8 @@ public class ProductController {
     }
     /**
      *  Create and return a new Product
-     * @return
+     * @param product objects
+     * @return the {@link Product} objects
      */
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
@@ -52,9 +54,9 @@ public class ProductController {
     }
     /**
      * Update and return the updated Product
-     * @param id
-
-     * @return
+     *  @param id the identification number for product
+     *  @param product
+     *  @return the {@link Product} objects
      */
     @PutMapping("/{id}")
     public Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
