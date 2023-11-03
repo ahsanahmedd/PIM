@@ -13,67 +13,33 @@ import java.util.Optional;
  * A Category Service class facilitates the organization and management of items or entities into distinct categories or groups.
  */
 @Service
-public class CategoryService {
-
-    private final CategoryRepositary categoryRepository;
-    public SuperCategoryService superCategoryService;
-    /**
-     * Constructor
-     * @return
-     */
-    @Autowired
-    public CategoryService(CategoryRepositary categoryRepository, SuperCategoryRepositary superCategoryRepositary) {
-        this.categoryRepository = categoryRepository;
-        this.superCategoryService = superCategoryService;
-    }
+public interface CategoryService {
     /**
      * Retrieve all Category from the repository
      */
-    public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
-    }
+    public List<Category> getAllCategories() ;
     /**
      * Retrieve a Category by its ID from the repository
      * @param id
      * @return the {@link Category} object
      */
-    public Category getCategoryById(Long id) {
-        Optional<Category> category = categoryRepository.findById(id);
-        return category.orElse(null);
-    }
+    public Category getCategoryById(Long id) ;
     /**
      * Create a new Category in the repository
      * @param category objects
      * @return the {@link Category} objects
      */
-    public Category createCategory(Category category) {
-        return categoryRepository.save(category);
-    }
+    public Category createCategory(Category category);
     /**
      * Update an existing Category in the repository
      * @param id the identification number for categories
      * @param category
      * @return the {@link Category} objects
      */
-    public Category updateCategory(Long id, Category category) {
-        if (categoryRepository.existsById(id)) {
-            category.setId(id);
-            category.setName(category.getName());
-            category.setSeoCopy(category.getSeoCopy());
-            category.setDescription(category.getDescription());
-            return categoryRepository.save(category);
-        }
-        return null; // Category not found
-    }
+    public Category updateCategory(Long id, Category category);
     /**
      * Delete a Category by its ID from the repository
      * @param id
      */
-    public boolean deleteCategory(Long id) {
-        if (categoryRepository.existsById(id)) {
-            categoryRepository.deleteById(id);
-            return true;
-        }
-        return false; // Category not found
-    }
+    public boolean deleteCategory(Long id);
 }

@@ -3,7 +3,7 @@ package com.wsgc.PIMbackend.Controller;
 
 
 import com.wsgc.PIMbackend.Service.AttributesService;
-import com.wsgc.PIMbackend.Service.ProductService;
+import com.wsgc.PIMbackend.Service.impl.ProductServiceImpl;
 import com.wsgc.PIMbackend.model.Attributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +17,11 @@ import java.util.Optional;
 @RequestMapping("/attributes")
 public class AttributesController {
     private AttributesService attributesService;
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
     @Autowired
-    public AttributesController(AttributesService attributeService,ProductService productService) {
-        this.attributesService = attributeService;
+    public AttributesController(AttributesService attributesService, ProductServiceImpl productService) {
+        this.attributesService = attributesService;
         this.productService = productService;
     }
     /**

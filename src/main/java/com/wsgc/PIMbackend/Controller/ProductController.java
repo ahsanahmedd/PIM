@@ -2,13 +2,14 @@
 package com.wsgc.PIMbackend.Controller;
 
 import com.wsgc.PIMbackend.Service.ProductService;
+import com.wsgc.PIMbackend.Service.impl.ProductServiceImpl;
 import com.wsgc.PIMbackend.Service.SubCategoryService;
 import com.wsgc.PIMbackend.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 /**
  * The Product Controller class manages and handles product-related operations and interactions within a software application.
  */
@@ -23,7 +24,7 @@ public class ProductController {
      * Constructor
      */
     @Autowired
-    public ProductController(ProductService productService, SubCategoryService subCategoryService) {
+    public ProductController(ProductServiceImpl productService, SubCategoryService subCategoryService) {
         this.productService = productService;
         this.subCategoryService = subCategoryService;
     }

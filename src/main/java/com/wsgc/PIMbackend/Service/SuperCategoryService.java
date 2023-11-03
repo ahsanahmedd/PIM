@@ -12,71 +12,25 @@ import java.util.Optional;
  * The SuperCategory Service class provides centralized management and operations for high-level categories in a software application.
  */
 @Service
-public class SuperCategoryService {
-
-
-    private final SuperCategoryRepositary superCategoryRepositary;
-
+public interface SuperCategoryService {
     /**
-     * Constructor
+     * @inheritDoc
      */
-    @Autowired
-
-    public SuperCategoryService(SuperCategoryRepositary superCategoryRepository, SuperCategoryRepositary superCategoryRepositary) {
-        this.superCategoryRepositary = superCategoryRepositary;
-
-    }
+    public List<SuperCategory> getAllSuperCategories();
     /**
-     * Retrieve all SuperCategory from the repository
+     * @inheritDoc
      */
-    public List<SuperCategory> getAllSuperCategories() {
-        return superCategoryRepositary.findAll();
-    }
+    public SuperCategory getSuperCategoryById(Long id);
     /**
-     * Retrieve a SuperCategory by its ID from the repository
-     * @param id
+     * @inheritDoc
      */
-    public SuperCategory getSuperCategoryById(Long id) {
-        Optional<SuperCategory> superCategoryOptional = superCategoryRepositary.findById(id);
-        return superCategoryOptional.orElse(null);
-    }
+    public SuperCategory createSuperCategory(SuperCategory superCategory);
     /**
-     * Create a new SuperCategory in the repository
-     * @param superCategory objects
-     * @return the {@link SuperCategory} objects
+     * @inheritDoc
      */
-    public SuperCategory createSuperCategory(SuperCategory superCategory) {
-        return superCategoryRepositary.save(superCategory);
-    }
+    public SuperCategory updateSuperCategory(Long id, SuperCategory superCategory);
     /**
-     * Update an existing SuperCategory in the repository
-     * @param id the identification number for SuperCategories
-     * @param superCategory
-     * @return the {@link SuperCategory} objects
+     * @inheritDoc
      */
-    public SuperCategory updateSuperCategory(Long id, SuperCategory superCategory) {
-        Optional<SuperCategory> existingSuperCategoryOptional = superCategoryRepositary.findById(id);
-
-
-        if (existingSuperCategoryOptional.isPresent()) {
-            SuperCategory existingSuperCategory = existingSuperCategoryOptional.get();
-            existingSuperCategory.setName(superCategory.getName());
-            existingSuperCategory.setSeoCopy(superCategory.getSeoCopy());
-            existingSuperCategory.setDescription(superCategory.getDescription());
-            return superCategoryRepositary.save(existingSuperCategory);
-        } else {
-            return null; // SuperCategory with the given ID does not exist
-        }
-    }
-    /**
-     * Delete a SuperCategory by its ID from the repository
-     * @param id
-     */
-    public boolean deleteSuperCategory(Long id) {
-        if (superCategoryRepositary.existsById(id)) {
-            superCategoryRepositary.deleteById(id);
-            return true;
-        }
-        return false; // SuperCategory with the given ID does not exist
-    }
+    public boolean deleteSuperCategory(Long id);
 }

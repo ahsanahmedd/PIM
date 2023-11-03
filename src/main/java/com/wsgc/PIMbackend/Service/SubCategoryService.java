@@ -10,67 +10,27 @@ import java.util.List;
  * A Sub-Category Service class is a specialized component that manages and provides services related to a specific sub-category within a larger system or application.
  */
 @Service
-public class SubCategoryService {
-
-    private CategoryService categoryService;
-    private final SubCategoryRepositary subCategoryRepository;
+public interface SubCategoryService {
     /**
-     * Constructor
-     * @return
+     * @inheritDoc
      */
-    @Autowired
-    public SubCategoryService(SubCategoryRepositary subCategoryRepository, CategoryService categoryService) {
-        this.categoryService = categoryService;
-        this.subCategoryRepository = subCategoryRepository;
-    }
-
-
-
+        public List<SubCategory> getAllSubCategories();
     /**
-     * Retrieve all SubCategory from the repository
+     * @inheritDoc
      */
-        public List<SubCategory> getAllSubCategories() {
-            return subCategoryRepository.findAll();
-        }
+        public SubCategory getSubCategoryById(Long id);
     /**
-     * Retrieve a SubCategory by its ID from the repository
-     * @param id
+     * @inheritDoc
      */
-        public SubCategory getSubCategoryById(Long id) {
-            return subCategoryRepository.findById(id).orElse(null);
-        }
+        public SubCategory createSubCategory(SubCategory subCategory);
     /**
-     * Create a new SubCategory in the repository
-     * @param subCategory objects
-     * @return the {@link SubCategory} objects
+     * @inheritDoc
      */
-        public SubCategory createSubCategory(SubCategory subCategory) {
-            return subCategoryRepository.save(subCategory);
-        }
+        public SubCategory updateSubCategory(Long id, SubCategory updatedSubCategory);
     /**
-     * Update an existing SubCategory in the repository
-     * @param id the identification number for subCategory
-     * @return the {@link SubCategory} objects
+     * @inheritDoc
      */
-        public SubCategory updateSubCategory(Long id, SubCategory updatedSubCategory) {
-            SubCategory existingSubCategory = subCategoryRepository.findById(id).orElse(null);
-            if (existingSubCategory != null) {
-                existingSubCategory.setName(updatedSubCategory.getName());
-                existingSubCategory.setSeoCopy(updatedSubCategory.getSeoCopy());
-                existingSubCategory.setCategory(updatedSubCategory.getCategory());
-                existingSubCategory.setDescription(updatedSubCategory.getDescription());
-                // Update other attributes as needed
-                return subCategoryRepository.save(existingSubCategory);
-            }
-            return null; // Handle not found case
-        }
-    /**
-     * Delete a SubCategory by its ID from the repository
-     * @param id
-     */
-        public void deleteSubCategory(Long id) {
-            subCategoryRepository.deleteById(id);
-        }
+        public void deleteSubCategory(Long id);
     }
 
 

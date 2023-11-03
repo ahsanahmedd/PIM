@@ -11,74 +11,26 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SwatchService {
-
-    @Autowired
-    private SwatchRepositary swatchRepository;
-    private AttributesRepository attributesRepository;
+public interface SwatchService {
     /**
-     * Constructor
-     */
-    @Autowired
-
-    public SwatchService(SwatchRepositary swatchRepositary,AttributesRepository attributesRepository){
-        this.swatchRepository = swatchRepositary;
-        this.attributesRepository = attributesRepository;
-    }
-
-
-    /**
-     * Retrieve all swatches from the repository
+     * @inheritDoc
      */
 
-    public List<Swatch> getAllSwatches() {
-        return swatchRepository.findAll();
-    }
-
+    public List<Swatch> getAllSwatches();
     /**
-     * Retrieve a swatch by its ID from the repository
-     * @param id
+     * @inheritDoc
      */
-    public Optional<Swatch> getSwatchById(Long id) {
-        return swatchRepository.findById(id);
-    }
-
+    public Optional<Swatch> getSwatchById(Long id);
     /**
-     * Create a new swatch in the repository
-     * @param swatch
-     * @return the {@link Swatch} objects
+     * @inheritDoc
      */
-    public Swatch createSwatch(Swatch swatch) {
-        return swatchRepository.save(swatch);
-    }
-
+    public Swatch createSwatch(Swatch swatch);
     /**
-     * Update an existing swatch in the repository
-     * @param id
-     * @param updateSwatch
-     * @return the {@link Swatch} objects
+     * @inheritDoc
      */
-    public Swatch updateSwatch(Long id, Swatch updateSwatch) {
-        Optional<Swatch> existingProduct = swatchRepository.findById(id);
-        if (existingProduct.isPresent()) {
-            Swatch swatch = existingProduct.get();
-            swatch.setId(updateSwatch.getId());
-            swatch.setImageURL(updateSwatch.getImageURL());
-            swatch.setDescription(updateSwatch.getDescription());
-
-
-            return swatchRepository.save(swatch);
-        } else {
-            return null; // Handle not found
-        }
-    }
-
-
+    public Swatch updateSwatch(Long id, Swatch updateSwatch);
     /**
-     * Delete a swatch by its ID from the repository
-     * @param id
+     * @inheritDoc
      */
-    public void deleteSwatch(Long id) {
-        swatchRepository.deleteById(id);
-    }
+    public void deleteSwatch(Long id);
 }
