@@ -1,16 +1,19 @@
 package com.wsgc.PIMbackend.Controller;
 
 import com.wsgc.PIMbackend.Service.AttributesService;
+import com.wsgc.PIMbackend.Service.SubCategoryService;
 import com.wsgc.PIMbackend.Service.SwatchService;
+import com.wsgc.PIMbackend.model.SubCategory;
 import com.wsgc.PIMbackend.model.Swatch;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/swatches")
+@RequestMapping("/supercategories/swatches")
 public class SwatchController {
 
 
@@ -42,6 +45,11 @@ public class SwatchController {
     public Optional<Swatch> getSwatchById(@PathVariable Long id) {
         return swatchService.getSwatchById(id);
     }
+//    @GetMapping("/name")
+//    public ResponseEntity<List<Swatch>> getSwatchByName(@RequestParam String name){
+//        List<Swatch> swatch = swatchService.findByName(name);
+//        return ResponseEntity.ok(swatch);
+//    }
 
     /**
      *  Create and return a new swatch

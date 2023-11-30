@@ -37,12 +37,20 @@ public class Product {
     @Column(name = "SKU")
     private Long sKU;
 
+
     @ManyToOne
     @JoinColumn(name = "SubCategoryID")
     private SubCategory subCategory;
 
+    @OneToMany(targetEntity = Skew.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Skew> Skew;
+
     @OneToMany(targetEntity = Attributes.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     List<Attributes> Attributes;
+
+    public Product(String number, String sampleProduct, double v) {
+    }
+
     public Long getId() {
         return id;
     }

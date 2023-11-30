@@ -6,6 +6,7 @@ import com.wsgc.PIMbackend.Service.SubCategoryService;
 import com.wsgc.PIMbackend.model.Category;
 import com.wsgc.PIMbackend.model.SubCategory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/api/subcategories")
+@RequestMapping("/supercategories/subcategories")
 public class SubCategoryController {
 
     private final CategoryService categoryService;
@@ -45,6 +46,11 @@ public class SubCategoryController {
     @GetMapping("/{subCategoryId}")
     public SubCategory getSubCategoryById(@PathVariable Long subCategoryId) {
         return subCategoryService.getSubCategoryById(subCategoryId);
+    }
+    @GetMapping("/name")
+    public ResponseEntity<List<SubCategory>> getSubCategoryByName(@RequestParam String name){
+        List<SubCategory> subCategory = subCategoryService.findByName(name);
+        return ResponseEntity.ok(subCategory);
     }
 
     /**

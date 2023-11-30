@@ -5,7 +5,9 @@ package com.wsgc.PIMbackend.Controller;
 import com.wsgc.PIMbackend.Service.AttributesService;
 import com.wsgc.PIMbackend.Service.impl.ProductServiceImpl;
 import com.wsgc.PIMbackend.model.Attributes;
+import com.wsgc.PIMbackend.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.Optional;
  * The Controller class manages the flow of data and user interactions in an application, often serving as an intermediary between the model and view components in the Model-View-Controller (MVC) architectural pattern.
  */
 @RestController
-@RequestMapping("/attributes")
+@RequestMapping("/supercategories/attributes")
 public class AttributesController {
     private AttributesService attributesService;
     private ProductServiceImpl productService;
@@ -36,9 +38,14 @@ public class AttributesController {
      * @param id objects
      * @return the {@link Attributes} object
      */
-    @GetMapping("/{AttributesID}")
+    @GetMapping("/{id}")
     public Optional<Attributes> getAttributesById(@PathVariable Long id) {
         return attributesService.getAttributesById(id);
+    }
+    @GetMapping("/name")
+    public ResponseEntity<List<Attributes>> getAttributesByName(@RequestParam String name){
+        List<Attributes> attributes = attributesService.findByName(name);
+        return ResponseEntity.ok(attributes);
     }
     /**
      * Create and return a new Attributes

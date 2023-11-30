@@ -1,6 +1,7 @@
 
 package com.wsgc.PIMbackend.Service;
 
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.model.SuperCategory;
 import com.wsgc.PIMbackend.repositary.SuperCategoryRepositary;
 
@@ -21,6 +22,7 @@ public interface SuperCategoryService {
      * @inheritDoc
      */
     public SuperCategory getSuperCategoryById(Long id);
+    public  List<SuperCategory> findByName(String name);
     /**
      * @inheritDoc
      */

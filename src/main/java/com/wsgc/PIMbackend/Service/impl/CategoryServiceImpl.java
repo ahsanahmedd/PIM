@@ -4,6 +4,7 @@ package com.wsgc.PIMbackend.Service.impl;
 import com.wsgc.PIMbackend.Service.CategoryService;
 import com.wsgc.PIMbackend.Service.SuperCategoryService;
 import com.wsgc.PIMbackend.model.Category;
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.repositary.CategoryRepositary;
 import com.wsgc.PIMbackend.repositary.SuperCategoryRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,8 @@ public class CategoryServiceImpl implements CategoryService {
         Optional<Category> category = categoryRepository.findById(id);
         return category.orElse(null);
     }
+    public List<Category> findByName(String name) {
+        return categoryRepository.findByName(name);}
     /**
      * @inheritDoc
      */

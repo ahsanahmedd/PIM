@@ -21,6 +21,7 @@ public interface SwatchService {
      * @inheritDoc
      */
     public Optional<Swatch> getSwatchById(Long id);
+//    public  List<Swatch> findByName(String name);
     /**
      * @inheritDoc
      */

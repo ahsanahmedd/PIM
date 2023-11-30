@@ -1,8 +1,11 @@
 package com.wsgc.PIMbackend.repositary;
 
 import com.wsgc.PIMbackend.model.Category;
+import com.wsgc.PIMbackend.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  *
@@ -10,4 +13,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CategoryRepositary extends JpaRepository<Category, Long> {
+    List<Category> findByName(String name);
 }

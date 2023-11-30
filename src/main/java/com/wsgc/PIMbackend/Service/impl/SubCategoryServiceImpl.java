@@ -3,6 +3,7 @@ package com.wsgc.PIMbackend.Service.impl;
 
 import com.wsgc.PIMbackend.Service.CategoryService;
 import com.wsgc.PIMbackend.Service.SubCategoryService;
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.model.SubCategory;
 import com.wsgc.PIMbackend.repositary.SubCategoryRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,8 @@ public class SubCategoryServiceImpl implements SubCategoryService {
         public SubCategory getSubCategoryById(Long id) {
             return subCategoryRepository.findById(id).orElse(null);
         }
+    public List<SubCategory> findByName(String name) {
+        return subCategoryRepository.findByName(name);}
     /**
      * Create a new SubCategory in the repository
      * @param subCategory objects

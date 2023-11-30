@@ -1,6 +1,7 @@
 
 package com.wsgc.PIMbackend.Service;
 
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.model.SubCategory;
 import com.wsgc.PIMbackend.repositary.SubCategoryRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public interface SubCategoryService {
      * @inheritDoc
      */
         public SubCategory getSubCategoryById(Long id);
+    public List<SubCategory> findByName(String name);
     /**
      * @inheritDoc
      */

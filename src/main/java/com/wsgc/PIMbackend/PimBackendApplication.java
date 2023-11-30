@@ -4,12 +4,19 @@ import com.wsgc.PIMbackend.model.Category;
 import com.wsgc.PIMbackend.model.SuperCategory;
 import com.wsgc.PIMbackend.repositary.CategoryRepositary;
 import com.wsgc.PIMbackend.repositary.SuperCategoryRepositary;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
 public class PimBackendApplication implements CommandLineRunner {
@@ -26,7 +33,7 @@ public class PimBackendApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		SuperCategory superCategory = new SuperCategory();
-
+		superCategory.setCategoryname("Electronics");
 		superCategory.setName("Electronics");
 		superCategory.setSeoCopy("new new");
 

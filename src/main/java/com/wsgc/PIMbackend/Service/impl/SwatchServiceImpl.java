@@ -1,6 +1,7 @@
 package com.wsgc.PIMbackend.Service.impl;
 
 import com.wsgc.PIMbackend.Service.SwatchService;
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.model.Swatch;
 import com.wsgc.PIMbackend.repositary.AttributesRepository;
 import com.wsgc.PIMbackend.repositary.SwatchRepositary;
@@ -42,6 +43,8 @@ public class SwatchServiceImpl implements SwatchService {
     public Optional<Swatch> getSwatchById(Long id) {
         return swatchRepository.findById(id);
     }
+//    public List<Swatch> findByName(String name) {
+//        return swatchRepository.findByName(name);}
 
     /**
      * Create a new swatch in the repository

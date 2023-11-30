@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
+import javax.servlet.annotation.HttpConstraint;
 import java.util.List;
 
 @Getter
@@ -14,8 +16,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@RequestMapping("SuperCategory")
 @Table(name = "supercategory")
+
+
 public class SuperCategory {
+
+    @Column(name = "Name_of_SuperCategory")
+    private String categoryname;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

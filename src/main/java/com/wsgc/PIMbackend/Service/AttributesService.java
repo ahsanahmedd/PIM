@@ -2,6 +2,7 @@
 package com.wsgc.PIMbackend.Service;
 
 import com.wsgc.PIMbackend.model.Attributes;
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.repositary.AttributesRepository;
 import com.wsgc.PIMbackend.repositary.ProductRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public interface AttributesService {
      * @return the {@link Attributes} object
      */
     public Optional<Attributes> getAttributesById(Long id);
+    public  List<Attributes> findByName(String name);
     /**
      * Create a new Attributes in the repository
      */

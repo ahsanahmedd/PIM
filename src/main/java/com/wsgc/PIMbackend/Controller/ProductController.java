@@ -6,6 +6,7 @@ import com.wsgc.PIMbackend.Service.impl.ProductServiceImpl;
 import com.wsgc.PIMbackend.Service.SubCategoryService;
 import com.wsgc.PIMbackend.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/supercategories/products")
 public class ProductController {
     private final ProductService productService;
     private final SubCategoryService subCategoryService;
@@ -37,18 +38,38 @@ public class ProductController {
     }
     /**
      *Retrieve and return a Product by its ID
-     * @param id objects
+     * @param ProductId objects
      * @return the {@link Product}objects
      */
-    @GetMapping("/{ProductID}")
-    public Product getProductById(@PathVariable Long id) {
-        return productService.getProductById(id);
+    @GetMapping("/{ProductId}")
+    public Product getProductById(@PathVariable Long ProductId) {
+        return productService.getProductById(ProductId);
     }
-    /**
-     *  Create and return a new Product
-     * @param product objects
-     * @return the {@link Product} objects
-     */
+
+    @GetMapping("/name")
+    public ResponseEntity<List<Product>> getProductByName(@RequestParam String name){
+        List<Product> products = productService.findByName(name);
+        return ResponseEntity.ok(products);
+    }
+    @GetMapping("/price")
+    public ResponseEntity<List<Product>> getProductByPrice(@RequestParam Long price){
+        List<Product> products = productService.findByPrice(price);
+        return ResponseEntity.ok(products);
+    }
+    @GetMapping("/priceRange")
+    public ResponseEntity<List<Product>> getProductsByPriceRange(
+            @RequestParam(name = "minPrice", required = true) long minprice,
+            @RequestParam(name = "maxPrice", required = true) long maxprice) {
+
+        List<Product> products = productService.findByPriceRange(minprice, maxprice);
+        return ResponseEntity.ok(products);
+        }
+        /**
+         *  Create and return a new Product
+         * @param product objects
+         * @return the {@link Product} objects
+         */
+
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
         return productService.createProduct(product);

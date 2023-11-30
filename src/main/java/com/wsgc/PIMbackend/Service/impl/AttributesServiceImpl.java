@@ -3,6 +3,7 @@ package com.wsgc.PIMbackend.Service.impl;
 
 import com.wsgc.PIMbackend.Service.AttributesService;
 import com.wsgc.PIMbackend.model.Attributes;
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.repositary.AttributesRepository;
 import com.wsgc.PIMbackend.repositary.ProductRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,8 @@ public class AttributesServiceImpl implements AttributesService {
     public Optional<Attributes> getAttributesById(Long id) {
         return attributesRepository.findById(id);
     }
+    public List<Attributes> findByName(String name) {
+        return attributesRepository.findByName(name);}
     /**
      * @inheritDoc
      */

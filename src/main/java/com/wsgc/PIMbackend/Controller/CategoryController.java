@@ -4,7 +4,9 @@ package com.wsgc.PIMbackend.Controller;
 import com.wsgc.PIMbackend.Service.CategoryService;
 import com.wsgc.PIMbackend.Service.SuperCategoryService;
 import com.wsgc.PIMbackend.model.Category;
+import com.wsgc.PIMbackend.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/supercategories/categories")
 public class CategoryController {
 
 
@@ -44,6 +46,11 @@ public class CategoryController {
     @GetMapping("/{id}")
     public Category getCategoryById(@PathVariable Long id) {
         return categoryService.getCategoryById(id);
+    }
+    @GetMapping("/name")
+    public ResponseEntity<List<Category>> getCategoryByName(@RequestParam String name){
+        List<Category> category = categoryService.findByName(name);
+        return ResponseEntity.ok(category);
     }
 
     /**

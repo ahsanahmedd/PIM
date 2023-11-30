@@ -2,6 +2,7 @@
 package com.wsgc.PIMbackend.Service;
 
 import com.wsgc.PIMbackend.model.Category;
+import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.repositary.CategoryRepositary;
 import com.wsgc.PIMbackend.repositary.SuperCategoryRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public interface CategoryService {
      * @return the {@link Category} object
      */
     public Category getCategoryById(Long id) ;
+    public  List<Category> findByName(String name);
     /**
      * Create a new Category in the repository
      * @param category objects
