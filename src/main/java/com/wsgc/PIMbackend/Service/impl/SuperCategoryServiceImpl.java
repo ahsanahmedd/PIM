@@ -43,6 +43,7 @@ public class SuperCategoryServiceImpl implements SuperCategoryService {
     public SuperCategory getSuperCategoryById(Long id) {
         Optional<SuperCategory> superCategoryOptional = superCategoryRepositary.findById(id);
         return superCategoryOptional.orElse(null);
+//        (new ResourceNotFoundException(("Employee not exist with id: "+ id))
     }
     public List<SuperCategory> findByName(String name) {
         return superCategoryRepositary.findByName(name);}

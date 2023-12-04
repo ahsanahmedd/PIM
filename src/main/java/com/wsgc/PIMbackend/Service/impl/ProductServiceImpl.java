@@ -48,12 +48,12 @@ public  class ProductServiceImpl implements ProductService {
     public List<Product> findByPrice(Long price) {
         return productRepository.findByPrice(price);}
 
-    @Override
-    public List<Product> findByPriceRange(long minprice, long maxprice) {
-        return null;
-    }
-
-    public List<Product> findByPriceRange(Long minprice, Long maxprice){
+//    @Override
+//    public List<Product> findByPriceRange(long minprice, long maxprice) {
+//        return null;
+//    }
+@Override
+    public List<Product> findByPriceRange(long minprice, long maxprice){
         return productRepository.findByPriceRange(minprice,maxprice);
     }
 
@@ -72,7 +72,8 @@ public  class ProductServiceImpl implements ProductService {
             Product product = existingProduct.get();
             product.setName(updatedProduct.getName());
             product.setDescription(updatedProduct.getDescription());
-            product.setSKU(updatedProduct.getSKU());
+//            product.setSKU(updatedProduct.getSKU());
+            product.setSku(updatedProduct.getSku());
             product.setPrice(updatedProduct.getPrice());
             product.setStock(updatedProduct.getStock());
             product.setSwatches(updatedProduct.getSwatches());

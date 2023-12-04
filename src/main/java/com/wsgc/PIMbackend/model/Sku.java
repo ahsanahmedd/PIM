@@ -5,19 +5,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Skew")
-public class Skew {
+@Table(name = "Sku")
+public class Sku {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "SkewID")
+    @Column(name = "SkuID")
     private Long id;
+//    @Column(name = "Primary")
+//    private Boolean isPrimary;
+
     @Column(name = "Name")
     private String name;
 

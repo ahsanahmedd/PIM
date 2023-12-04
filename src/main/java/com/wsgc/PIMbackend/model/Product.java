@@ -31,19 +31,19 @@ public class Product {
     @Column(name = "Attribute")
     private String attribute;
     @Column(name = "SEO_copy")
-    private String SeoCopy;
+    private String seoCopy;
     @Column(name = "Description")
     private String description;
     @Column(name = "SKU")
-    private Long sKU;
+    private Long sku;
 
 
     @ManyToOne
     @JoinColumn(name = "SubCategoryID")
     private SubCategory subCategory;
 
-    @OneToMany(targetEntity = Skew.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    List<Skew> Skew;
+    @OneToMany(targetEntity = Sku.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Sku> Skew;
 
     @OneToMany(targetEntity = Attributes.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     List<Attributes> Attributes;

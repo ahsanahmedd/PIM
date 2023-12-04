@@ -2,6 +2,8 @@ package com.wsgc.PIMbackend.repositary;
 
 import com.wsgc.PIMbackend.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,8 +15,10 @@ import java.util.List;
 public interface ProductRepositary extends JpaRepository<Product, Long> {
     List<Product> findByName(String name);
     List<Product> findByPrice(Long price);
+    @Query("SELECT p FROM Product p WHERE p.price >= :minPrice AND p.price <= :maxPrice")
+    List<Product> findByPriceRange(@Param("minPrice") long minPrice, @Param("maxPrice") long maxPrice);
 
-    default List<Product> findByPriceRange(long minprice, long maxprice) {
-        return null;
-    }
+
+
+//    List<Product> findByPriceRange(long minprice, long maxprice) ;
 }
