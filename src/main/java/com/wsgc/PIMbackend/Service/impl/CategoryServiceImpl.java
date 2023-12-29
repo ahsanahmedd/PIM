@@ -4,7 +4,6 @@ package com.wsgc.PIMbackend.Service.impl;
 import com.wsgc.PIMbackend.Service.CategoryService;
 import com.wsgc.PIMbackend.Service.SuperCategoryService;
 import com.wsgc.PIMbackend.model.Category;
-import com.wsgc.PIMbackend.model.Product;
 import com.wsgc.PIMbackend.repositary.CategoryRepositary;
 import com.wsgc.PIMbackend.repositary.SuperCategoryRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
         this.superCategoryService = superCategoryService;
     }
+
     /**
      * @inheritDoc
      */
@@ -72,5 +72,9 @@ public class CategoryServiceImpl implements CategoryService {
             return true;
         }
         return false; // Category not found
+    }
+    @Override
+    public Category addCategory(Category categoryToAdd) {
+        return categoryRepository.save(categoryToAdd);
     }
 }

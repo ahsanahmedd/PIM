@@ -33,6 +33,14 @@ public class Category {
     @OneToMany(targetEntity = SubCategory.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     List<SubCategory> SubCategory;
 
+    public Category(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public Long getId() {
+        return id;
+    }
+
 
     // Getter and Setter methods
 }

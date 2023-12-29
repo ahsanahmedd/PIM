@@ -8,7 +8,6 @@ import lombok.Setter;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
-import javax.servlet.annotation.HttpConstraint;
 import java.util.List;
 
 @Getter
@@ -39,6 +38,14 @@ public class SuperCategory {
 
     @OneToMany(targetEntity = Category.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     List<Category> Category;
+
+    public SuperCategory(Long id, String name) {
+        this.id = id;
+        this.name = name;
+
+    }
+
+
 
     public Long getId() {
         return id;

@@ -44,4 +44,6 @@ public interface CategoryService {
      * @param id
      */
     public boolean deleteCategory(Long id);
+
+    Category addCategory(Category categoryToAdd);
 }

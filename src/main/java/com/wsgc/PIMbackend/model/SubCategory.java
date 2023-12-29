@@ -30,10 +30,14 @@ public class SubCategory {
     @JoinColumn(name = "Category_ID")
     private Category Category;
 
-    @OneToMany(targetEntity = Product.class, mappedBy = "id", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Product.class, mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<Product> Product;
 
+    public SubCategory(Long id, String name) {
+        this.id = id;
+        this.name = name;
 
 
-    // Getter and Setter methods
+        // Getter and Setter methods
+    }
 }

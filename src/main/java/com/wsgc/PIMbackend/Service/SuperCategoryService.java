@@ -14,6 +14,8 @@ import java.util.Optional;
  */
 @Service
 public interface SuperCategoryService {
+    SuperCategory addSuperCategory(SuperCategory superCategoryToAdd);
+
     /**
      * @inheritDoc
      */

@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * A product repository is a centralized database or storage system that houses information and data related to a company's or organization's products, making it easy to manage, access, and track product details.
@@ -18,6 +19,9 @@ public interface ProductRepositary extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.price >= :minPrice AND p.price <= :maxPrice")
     List<Product> findByPriceRange(@Param("minPrice") long minPrice, @Param("maxPrice") long maxPrice);
 
+    Optional<Product> findById(Long id);
+
+    void deleteById(Long id);
 
 
 //    List<Product> findByPriceRange(long minprice, long maxprice) ;

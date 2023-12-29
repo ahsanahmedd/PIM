@@ -101,6 +101,10 @@ public  class ProductServiceImpl implements ProductService {
 
     @Override
     public Product addProduct(Product productToAdd) {
-        return null;
+        return productRepository.save(productToAdd);
+    }
+
+    public Product updateProduct(Product updateProduct) {
+        return productRepository.save(updateProduct);
     }
 }

@@ -2,8 +2,6 @@
 package com.wsgc.PIMbackend.Service.impl;
 
 import com.wsgc.PIMbackend.Service.SuperCategoryService;
-import com.wsgc.PIMbackend.model.Product;
-import com.wsgc.PIMbackend.exception.ResourceNotFoundException;
 import com.wsgc.PIMbackend.model.SuperCategory;
 import com.wsgc.PIMbackend.repositary.SuperCategoryRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +28,13 @@ public class SuperCategoryServiceImpl implements SuperCategoryService {
         this.superCategoryRepositary = superCategoryRepositary;
 
     }
+    @Override
+    public SuperCategory addSuperCategory(SuperCategory superCategoryToAdd) {
+        return superCategoryRepositary.save(superCategoryToAdd);
+    }
+
+
+
     /**
      * Retrieve all SuperCategory from the repository
      */
@@ -61,7 +66,7 @@ public class SuperCategoryServiceImpl implements SuperCategoryService {
      * @param superCategory
      * @return the {@link SuperCategory} objects
      */
-    public SuperCategory updateSuperCategory(Long id, SuperCategory superCategory) {
+    public SuperCategory updateSuperCategory(Long id ,SuperCategory superCategory) {
         Optional<SuperCategory> existingSuperCategoryOptional = superCategoryRepositary.findById(id);
 
 
@@ -84,7 +89,8 @@ public class SuperCategoryServiceImpl implements SuperCategoryService {
         if (superCategoryRepositary.existsById(id)) {
             superCategoryRepositary.deleteById(id);
             return true;
+        } else {
+            return false; // SuperCategory with the given ID does not exist
         }
-        return false; // SuperCategory with the given ID does not exist
     }
 }
